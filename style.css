@@ -1,45 +1,106 @@
 @import url('https://fonts.googleapis.com/css2?family=Staatliches&display=swap');
 
-html {
+* {
     box-sizing: border-box;
     font-size: 62.5%;
+    font-family: "Staatliches", cursive;
+    margin: 0;
+    padding: 0;
 }
-*,*::before,*::after{
+
+:root {
+    --colorPrimario: white;
+}
+
+*,
+*::before,
+*::after {
     box-sizing: inherit;
 }
+
+
 /*===== GLOBALES =====*/
 body {
-    background-color: hwb(59 14% 58%);
+    background-color: #74EBD5;
+    background-image: linear-gradient(90deg, #74EBD5 0%, #9FACE6 100%);
     font-size: 1.6rem;
     line-height: 1.5;
 }
-p{
+
+
+p {
     font-size: 1.8rem;
     font-family: Arial, Helvetica, sans-serif;
-    color: black;
+    color: var(--colorPrimario);
 }
+
 a {
     text-decoration: none;
 }
+
 img {
-    width: 100%;
+    max-width: 100%;
 }
+
 .contenedor {
     max-width: 120rem;
     margin-inline: 1rem;
     padding-inline: 1rem;
 }
-h1, h2, h3 {
-    text-align: center;
-    color: white;
-    font-family: "Staatliches", cursive;
+
+h1,
+h2,
+h3 {
+    color: var(--colorPrimario);
 }
+
 h1 {
     font-size: 4rem;
 }
+
 h2 {
     font-size: 3.2rem;
 }
+
 h3 {
     font-size: 2.4rem;
+}
+
+/******HEADER*********/
+
+.header {
+    display: flex;
+    justify-content: center;
+}
+.header__logo {
+    margin: 3rem 0;
+}
+/*******FOOTER*******/
+.footer{
+    background-color: hsla(0, 0%, 0%, 0.226);
+    padding: 1rem 0;
+    margin-top: 2rem;
+}
+.footer__text {
+    text-align: center;
+    font-size: 2.2rem;
+
+}
+/*********NAVEGACION********/
+
+.navegacion {
+    background-color: hsla(0, 0%, 0%, 0.226);
+    padding: 1rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+
+}
+.navegacion__enlace {
+    color: var(--colorPrimario);
+    font-size: 3rem;
+}
+.navegacion__enlace--activo,
+.navegacion__enlace:hover {
+    color: hsl(44, 100%, 50%);
 }
