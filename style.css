@@ -41,11 +41,13 @@ a {
 
 img {
     width: 100%;
+    border-radius: 1rem;
 }
 
 .contenedor {
     max-width: 120rem;
     margin: 0 auto;
+    margin-inline: 1rem;
 }
 
 h1,
@@ -124,6 +126,7 @@ h3 {
 .producto {
     background-color: hsla(0, 0%, 0%, 0.226);
     padding: 1rem;
+    border-radius: 1rem;
 }
 
 
@@ -148,6 +151,122 @@ h3 {
     line-height: 1.2;
 }
 
+/*****BOTON DECOMPRA******/
+
+.button {
+    --width: 100%;
+    --height: 35px;
+    --tooltip-height: 35px;
+    --tooltip-width: 90px;
+    --gap-between-tooltip-to-button: 18px;
+    --button-color: hsla(0, 0%, 0%, 0.212);
+    --tooltip-color: #fff;
+    width: var(--width);
+    height: var(--height);
+    background: var(--button-color);
+    position: relative;
+    text-align: center;
+    border-radius: 0.45em;
+    font-family: "Arial";
+    transition: background 0.3s;
+  }
+  
+  .button::before {
+    position: absolute;
+    content: attr(data-tooltip);
+    width: var(--tooltip-width);
+    height: var(--tooltip-height);
+    background-color: #555;
+    font-size: 0.9rem;
+    color: #fff;
+    border-radius: .25em;
+    line-height: var(--tooltip-height);
+    bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) + 10px);
+    left: calc(50% - var(--tooltip-width) / 2);
+  }
+  
+  .button::after {
+    position: absolute;
+    content: '';
+    width: 0;
+    height: 0;
+    border: 10px solid transparent;
+    border-top-color: #555;
+    left: calc(50% - 10px);
+    bottom: calc(100% + var(--gap-between-tooltip-to-button) - 10px);
+  }
+  
+  .button::after,.button::before {
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+  }
+  
+  .text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .button-wrapper,.text,.icon {
+    overflow: hidden;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    color: #fff;
+  }
+  
+  .text {
+    top: 0
+  }
+  
+  .text,.icon {
+    transition: top 0.5s;
+  }
+  
+  .icon {
+    color: #fff;
+    top: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .icon svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .button:hover {
+    background: #222;
+  }
+  
+  .button:hover .text {
+    top: -100%;
+  }
+  
+  .button:hover .icon {
+    top: 0;
+  }
+  
+  .button:hover:before,.button:hover:after {
+    opacity: 1;
+    visibility: visible;
+  }
+  
+  .button:hover:after {
+    bottom: calc(var(--height) + var(--gap-between-tooltip-to-button) - 20px);
+  }
+  
+  .button:hover:before {
+    bottom: calc(var(--height) + var(--gap-between-tooltip-to-button));
+  }
+  
+  
+  
+  
+
 /******GRAFICOS********/
 
 .grafico {
@@ -164,6 +283,10 @@ h3 {
 .grafico--node {
     background-image: url(img/grafico2.jpg);  
     grid-row: 8 / 9;
+}
+.grafico--camisas,
+.grafico--node {
+    border-radius: 1rem;
 }
 
  @media (min-width: 768px) {
@@ -213,12 +336,51 @@ h3 {
 
 .bloque {
     text-align: center;
-
 }
-
 
 .bloque__titulo {
     margin: 0;
 }
 
 /******Paguina del producto********/
+
+@media (min-width: 768px) {
+    .camisa{
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        column-gap: 2rem;
+    }
+    
+}
+
+.formulario {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2rem;
+}
+.formulario__campo {
+    border: 1rem solid hsla(0, 0%, 0%, 0.226);
+    background-color: transparent;
+    color: white;
+    font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 1rem;
+    appearance: none;
+}
+.formulario__submit {
+    background-color: hsl(44, 100%, 50%);
+    border: none;
+    font-size: 2rem;
+    padding: 2rem;
+    transition: background-color .3s ease;
+    grid-column: 1 / 3;
+}
+.formulario__submit:hover {
+    cursor: pointer;
+    background-color: hsl(44, 96%, 36%);
+}
+.formulario,
+.formulario__campo,
+.formulario__submit {
+    border-radius: 1rem;
+}
